@@ -4,7 +4,7 @@ class Euclid:
     def __init__(self):
         self.table = None
 
-    def alg_euclid(self, A: int, B: int) -> [int, int]:
+    def alg_euclid(self, A: int, B: int) -> [int, int, int]:
         # First four columns
         A_list, B_list, mod_list, div_list = [], [], [], []
         while A % B != 0:
