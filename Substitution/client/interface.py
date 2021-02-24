@@ -35,7 +35,7 @@ class MainForm(Frame):
             frm = Frame(self.parent, bg='#a0a0a0' if i % 2 == 0 else '#3f3f3f')
             self.cipherFrames.append(frm)
 
-        # Labels,
+        # Left Input, key input, right outout, buttons
         for i in range(self.cipher_num):
             cfg_cipher = ciphers_config[i]
 
