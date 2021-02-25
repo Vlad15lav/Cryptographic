@@ -1,5 +1,9 @@
-import math
 from tools.prime_test import prime_test
+
+def find_gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
 
 # Calculation M value
 def find_m(b: int) -> int:
