@@ -87,8 +87,8 @@ class MainForm(Frame):
             return
 
         if B < 14:
-        	mb.showerror("Warning", 'Recommendation value B not more 14!')
-        	return
+            mb.showerror("Warning", 'Recommendation value B not more 14!')
+            return
         
         start_time = time.time()
         res = williams(n, B, P, Q)
