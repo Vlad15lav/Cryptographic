@@ -86,7 +86,7 @@ class MainForm(Frame):
             mb.showerror("Error", 'Please enter an integers!')
             return
 
-        if B < 14:
+        if B > 14:
             mb.showerror("Warning", 'Recommendation value B not more 14!')
             return
         
