@@ -1,3 +1,4 @@
+import math
 from tools.prime_test import prime_test
 
 # Find GCD
