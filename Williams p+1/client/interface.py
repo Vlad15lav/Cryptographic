@@ -86,8 +86,8 @@ class MainForm(Frame):
             mb.showerror("Error", 'Please enter an integers!')
             return
 
-        if B > 14:
-            mb.showerror("Warning", 'Recommendation value B not more 14!')
+        if B > 12:
+            mb.showerror("Warning", 'Recommendation value B not more 11!')
             return
         
         start_time = time.time()
