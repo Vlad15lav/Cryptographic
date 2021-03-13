@@ -1,5 +1,3 @@
-import time
-
 from tkinter import *
 from tkinter import messagebox as mb
 from client.tableform import TableForm
