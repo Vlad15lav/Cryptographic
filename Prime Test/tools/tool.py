@@ -1,5 +1,5 @@
 # Find GCD
-def find_gcd(a, b):
+def find_gcd(a: int, b: int) -> int:
     while b:
         a, b = b, a % b
     return a
