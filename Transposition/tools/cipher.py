@@ -53,7 +53,9 @@ class BlockTransposition(Cipher):
         self.key = len(text) // len(self.key_seq)
 
         text_split = np.array([text[i:i + self.key] for i in range(0, len(text), self.key)])
-        return ''.join(text_split[np.argsort(self.key_seq)].tolist())
+        text = ''.join(text_split[np.argsort(self.key_seq)].tolist())
+        temp = text[-1]
+        return text.rstrip(temp) + temp
 
     def get_table(self) -> np.array:
         return np.array([[i for i in range(len(self.key_seq))], self.key_seq])
