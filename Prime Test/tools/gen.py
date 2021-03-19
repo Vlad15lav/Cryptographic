@@ -10,6 +10,5 @@ def generate_prime(size: int, test_function: Callable) -> int:
     n = generate_number(size)
     n += n % 2 == 0 # to odd
 
-    while not test_function(n):
-        n += 2
+    while not test_function(n): n += 2
     return n
