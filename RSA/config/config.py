@@ -1,5 +1,5 @@
 # Allow symbols
-reg_rus = '[А-Яа-я ]'
+reg_rus = '[А-Яа-яЁё ]'
 reg_eng = '[A-Za-z ]'
 
 # Decode reg
