@@ -5,6 +5,8 @@ from tools.tool import fast_me, alg_euclid
 
 class RSA:
     def __init__(self, bin_size: int = None):
+        self.__length_alp = 2500
+
         if bin_size is not None:
             self.__bin_size = bin_size
             self.__p, self.__q = generate_prime(bin_size // 2), generate_prime(bin_size // 2)
@@ -30,4 +32,4 @@ class RSA:
         return ''.join([str(fast_me(ord(s), self.__e, self.__n)) + ' ' for s in list(message)]).rstrip(' ')
 
     def decode(self, message: str) -> str:
-        return ''.join([str(chr(fast_me(int(c), self.__d, self.__n))) for c in message.split(' ')]).rstrip(' ')
+        return ''.join([str(chr(fast_me(int(c), self.__d, self.__n) % self.__length_alp)) for c in message.split(' ')]).rstrip(' ')
