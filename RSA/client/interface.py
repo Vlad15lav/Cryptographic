@@ -117,15 +117,17 @@ class MainForm(Frame):
         except ValueError:
             mb.showerror("Error", 'Please enter an integers!')
             return False
-        if n < 8:
-            mb.showerror("Error", 'Please enter a positive numbers! (n >= 8)')
-            return False
+
         return True
 
         # Generate keys
     def __btn_generate(self):
-        size = self.entry_length.get()
-        if not self.__check_input(size): return
+        size = int(self.entry_length.get())
+
+        if size < 8:
+            mb.showerror("Error", 'Please enter a positive numbers! (n >= 8)')
+            return False
+
         self.cipher = RSA(int(size))
         p, q, n, euler, e, d = self.cipher.params()
         self.n_txt.delete(0, END)
