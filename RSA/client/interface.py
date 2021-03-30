@@ -12,7 +12,6 @@ class MainForm(Frame):
         self.parent = parent
         self.parent.resizable(width=False, height=False)
 
-        self.isRus = False
         self.cipher = None
 
         self.window_w = 500
@@ -67,7 +66,6 @@ class MainForm(Frame):
         self.btn_gen = Button(self.frame, text='Gen Key', bg='gray', command=self.__btn_generate)
         self.btn_enc = Button(self.frame, text='Encode', bg='gray', command=self.__btn_encode)
         self.btn_dec = Button(self.frame, text='Decode', bg='gray', command=self.__btn_decode)
-        self.btn_lang = Button(self.frame, text='Russian Language', bg='gray', command=self.__btn_language)
 
 
     def showUI(self):
@@ -111,23 +109,16 @@ class MainForm(Frame):
         self.btn_gen.place(x=350, y=20, width=120)
         self.btn_enc.place(x=350, y=185, width=120)
         self.btn_dec.place(x=350, y=215, width=120)
-        self.btn_lang.place(x=350, y=245, width=120)
 
     # Check input value
     def __check_input(self, input_value: str) -> bool:
         try:
             n = int(input_value)
         except ValueError:
-            if self.isRus:
-                mb.showerror("Ошибка", 'Введите число!')
-            else:
-                mb.showerror("Error", 'Please enter an integers!')
+            mb.showerror("Error", 'Please enter an integers!')
             return False
-        if n < 16:
-            if self.isRus:
-                mb.showerror("Ошибка", 'Введите положительное число! (n >= 16)')
-            else:
-                mb.showerror("Error", 'Please enter a positive numbers! (n >= 16)')
+        if n < 8:
+            mb.showerror("Error", 'Please enter a positive numbers! (n >= 8)')
             return False
         return True
 
@@ -162,20 +153,16 @@ class MainForm(Frame):
 
         txt = self.inp_txt.get("1.0", "end-1c").rstrip('\n')
         # Check outside the alphabet
-        if self.isRus:
-            reg_val_txt = re.sub(reg_rus, '', txt)
-        else:
-            reg_val_txt = re.sub(reg_eng, '', txt)
+        # if self.isRus:
+        #     reg_val_txt = re.sub(reg_rus, '', txt)
+        # else:
+        #     reg_val_txt = re.sub(reg_eng, '', txt)
 
         # There are extra characters
-        if len(reg_val_txt) > 0:
-            if self.isRus:
-                mb.showerror("Ошибка",
-                             repr(f"Используются посторонние символы: {''.join(set(reg_val_txt))}"))
-            else:
-                mb.showerror("Error",
-                             repr(f"Foreign characters are used: {''.join(set(reg_val_txt))}"))
-            return
+        # if len(reg_val_txt) > 0:
+        #     mb.showerror("Error",
+        #                  repr(f"Foreign characters are used: {''.join(set(reg_val_txt))}"))
+        #     return
 
         result = self.cipher.encode(txt)
         self.out_txt.delete(1.0, END)
@@ -191,38 +178,13 @@ class MainForm(Frame):
         reg_val_txt = re.sub(reg_decode, '', txt)
         # There are extra characters
         if len(reg_val_txt) > 0:
-            if self.isRus:
-                mb.showerror("Ошибка",
-                             repr(f"Используются посторонние символы: {''.join(set(reg_val_txt))}"))
-            else:
-                mb.showerror("Error",
-                             repr(f"Foreign characters are used: {''.join(set(reg_val_txt))}"))
+            mb.showerror("Error",
+                         repr(f"Foreign characters are used: {''.join(set(reg_val_txt))}"))
             return
 
         result = self.cipher.decode(txt)
         self.out_txt.delete(1.0, END)
         self.out_txt.insert(1.0, result)
-
-    def __btn_language(self):
-        self.isRus = not self.isRus
-        if self.isRus:
-            self.label_length.config(text='Длина Бит Ключа:')
-            self.key_label.config(text='Ключи:\nОткрытый - (e, N)\nЗакрытый - (d, N)')
-            self.inp_label.config(text='Входной текст:')
-            self.out_label.config(text='Результат:')
-            self.btn_gen.config(text='Сгенерировать ключ')
-            self.btn_enc.config(text='Зашифровать')
-            self.btn_dec.config(text='Расшифровать')
-            self.btn_lang.config(text='Сменить Английский')
-        else:
-            self.label_length.config(text='Entry Binary Length:')
-            self.key_label.config(text='Keys:\nPublic - (e, N)\nPrivate - (d, N)')
-            self.inp_label.config(text='Entry Text:')
-            self.out_label.config(text='Result Text:')
-            self.btn_gen.config(text='Gen Key')
-            self.btn_enc.config(text='Encode')
-            self.btn_dec.config(text='Decode')
-            self.btn_lang.config(text='Russian Language')
 
     # Centring window
     def centerWindow(self):
