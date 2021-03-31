@@ -12,7 +12,7 @@ class RSA:
             self.__p, self.__q = generate_prime(bin_size), generate_prime(bin_size)
             self.__n = self.__p * self.__q
             self.__euler = (self.__p - 1) * (self.__q - 1)
-            self.__e = generate_public(bin_size, self.__euler)
+            self.__e = generate_public(self.__n, self.__euler)
             _, _, self.__d = alg_euclid(self.__euler, self.__e)
             self.__d %= self.__euler
 
