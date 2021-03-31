@@ -5,7 +5,7 @@ from tools.tool import fast_me, alg_euclid
 
 class RSA:
     def __init__(self, bin_size: int = None):
-        self.__length_alp = 2048
+        self.__length_alp = 2048 # Max code symbol
 
         if bin_size is not None:
             self.__bin_size = bin_size
