@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox as mb
 from cipher.rsa import RSA
-from config.config import reg_rus, reg_eng, reg_decode
+from config.config import reg_decode
 
 # Tkinter interface
 class MainForm(Frame):
