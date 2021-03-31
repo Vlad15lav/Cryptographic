@@ -17,6 +17,6 @@ def generate_prime(size: int) -> int:
     return n
 
 def generate_public(N: int, euler: int) -> int:
-    e = generate_number(N // 3)
+    e = N // 3
     while find_gcd(e, euler) != 1: e += 1
     return e
