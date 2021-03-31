@@ -14,6 +14,7 @@ class MainForm(Frame):
 
         self.cipher = None
 
+        self.min_length = 8
         self.window_w = 500
         self.window_h = 550
 
@@ -124,7 +125,7 @@ class MainForm(Frame):
     def __btn_generate(self):
         size = int(self.entry_length.get())
 
-        if size < 8:
+        if size < self.min_length:
             mb.showerror("Error", 'Please enter a positive numbers! (n >= 8)')
             return False
 
@@ -155,16 +156,11 @@ class MainForm(Frame):
 
         txt = self.inp_txt.get("1.0", "end-1c").rstrip('\n')
         # Check outside the alphabet
-        # if self.isRus:
-        #     reg_val_txt = re.sub(reg_rus, '', txt)
-        # else:
-        #     reg_val_txt = re.sub(reg_eng, '', txt)
-
-        # There are extra characters
-        # if len(reg_val_txt) > 0:
-        #     mb.showerror("Error",
-        #                  repr(f"Foreign characters are used: {''.join(set(reg_val_txt))}"))
-        #     return
+        for s in txt:
+            if ord(s) >= 2048:
+                mb.showerror("Error",
+                    repr(f"Foreign characters are used: {ord(s)}"))
+                return
 
         result = self.cipher.encode(txt)
         self.out_txt.delete(1.0, END)
@@ -178,6 +174,7 @@ class MainForm(Frame):
         txt = self.inp_txt.get("1.0", "end-1c").rstrip('\n')
         # Check outside the alphabet
         reg_val_txt = re.sub(reg_decode, '', txt)
+
         # There are extra characters
         if len(reg_val_txt) > 0:
             mb.showerror("Error",
