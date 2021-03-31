@@ -123,7 +123,9 @@ class MainForm(Frame):
 
         # Generate keys
     def __btn_generate(self):
-        size = int(self.entry_length.get())
+        size = self.entry_length.get()
+        if not self.__check_input(size): return
+        size = int(size)
 
         if size < self.min_length:
             mb.showerror("Error", 'Please enter a positive numbers! (n >= 8)')
