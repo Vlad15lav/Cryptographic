@@ -5,14 +5,14 @@ from tools.tool import fast_me, alg_euclid
 
 class RSA:
     def __init__(self, bin_size: int = None):
-        self.__length_alp = 2048 # Max code symbol
+        self.__length_alp = 2048
 
         if bin_size is not None:
             self.__bin_size = bin_size
             self.__p, self.__q = generate_prime(bin_size), generate_prime(bin_size)
             self.__n = self.__p * self.__q
             self.__euler = (self.__p - 1) * (self.__q - 1)
-            self.__e = generate_public(self.__n, self.__euler)
+            self.__e = generate_public((len(bin(self.__n)) - 2) // 3, self.__euler)
             _, _, self.__d = alg_euclid(self.__euler, self.__e)
             self.__d %= self.__euler
 
