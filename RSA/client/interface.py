@@ -161,7 +161,7 @@ class MainForm(Frame):
         for s in txt:
             if ord(s) >= 2048:
                 mb.showerror("Error",
-                    repr(f"Foreign characters are used: {ord(s)}"))
+                    repr(f"Foreign characters are used: {s}"))
                 return
 
         result = self.cipher.encode(txt)
