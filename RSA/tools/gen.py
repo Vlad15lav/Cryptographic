@@ -15,6 +15,7 @@ def generate_prime(length: int) -> int:
     while not miller_rabin(n): n += 2
     return n
 
+# generate public key
 def generate_public(length: int, euler: int) -> int:
     e = generate_number(length)
     while find_gcd(e, euler) != 1: e += 1
