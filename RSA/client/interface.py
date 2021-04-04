@@ -16,7 +16,7 @@ class MainForm(Frame):
 
         self.min_length = 8
         self.window_w = 500
-        self.window_h = 550
+        self.window_h = 680
 
         self.centerWindow()
         self.initUI()
@@ -59,14 +59,19 @@ class MainForm(Frame):
         self.inp_label = Label(self.frame, text='Entry Text:', bg='#fafafa', font=20)
         self.inp_txt = Text(self.frame)
 
+        # Input Text
+        self.enc_label = Label(self.frame, text='Encode Text:', bg='#fafafa', font=20)
+        self.enc_txt = Text(self.frame)
+
         # Result Text
-        self.out_label = Label(self.frame, text='Result Text:', bg='#fafafa', font=20)
-        self.out_txt = Text(self.frame)
+        self.dec_label = Label(self.frame, text='Decode Text:', bg='#fafafa', font=20)
+        self.dec_txt = Text(self.frame)
 
         # Buttons
-        self.btn_gen = Button(self.frame, text='Gen Key', bg='gray', command=self.__btn_generate)
+        self.btn_gen = Button(self.frame, text='Gen Keys', bg='gray', command=self.__btn_generate)
         self.btn_enc = Button(self.frame, text='Encode', bg='gray', command=self.__btn_encode)
         self.btn_dec = Button(self.frame, text='Decode', bg='gray', command=self.__btn_decode)
+        self.btn_clr = Button(self.frame, text='Clear', bg='gray', command=self.__btn_clear)
 
 
     def showUI(self):
@@ -102,14 +107,19 @@ class MainForm(Frame):
         self.inp_label.place(x=20, y=250)
         self.inp_txt.place(x=20, y=275, width=460, height=110)
 
-        # Result Text
-        self.out_label.place(x=20, y=390)
-        self.out_txt.place(x=20, y=420, width=460, height=110)
+        # Encode Text
+        self.enc_label.place(x=20, y=390)
+        self.enc_txt.place(x=20, y=415, width=460, height=110)
+
+        # Decode Text
+        self.dec_label.place(x=20, y=530)
+        self.dec_txt.place(x=20, y=555, width=460, height=110)
 
         # Buttons
         self.btn_gen.place(x=350, y=20, width=120)
         self.btn_enc.place(x=350, y=185, width=120)
         self.btn_dec.place(x=350, y=215, width=120)
+        self.btn_clr.place(x=220, y=185, width=120)
 
     # Check input value
     def __check_input(self, input_value: str) -> bool:
@@ -152,11 +162,19 @@ class MainForm(Frame):
         self.d_txt.insert(0, d)
 
     def __btn_encode(self):
+        if self.cipher is None:
+            mb.showerror("Error", "Generate keys!")
+            return
+
         e, n = self.e_txt.get(), self.n_txt.get()
         if not self.__check_input(e): return
         if not self.__check_input(n): return
 
         txt = self.inp_txt.get("1.0", "end-1c").rstrip('\n')
+        if txt == '':
+            mb.showerror("Error", "Entry text!")
+            return
+
         # Check outside the alphabet
         for s in txt:
             if ord(s) >= 2048:
@@ -165,15 +183,24 @@ class MainForm(Frame):
                 return
 
         result = self.cipher.encode(txt)
-        self.out_txt.delete(1.0, END)
-        self.out_txt.insert(1.0, result)
+        self.enc_txt.delete(1.0, END)
+        self.enc_txt.insert(1.0, result)
 
     def __btn_decode(self):
+        if self.cipher is None:
+            mb.showerror("Error", "Generate keys!")
+            return
+
         d, n = self.d_txt.get(), self.n_txt.get()
         if not self.__check_input(d): return
         if not self.__check_input(n): return
 
-        txt = self.inp_txt.get("1.0", "end-1c").rstrip('\n')
+        txt = self.enc_txt.get("1.0", "end-1c").rstrip('\n')
+        if txt == '':
+            mb.showerror("Error", "Entry cryptogram!")
+            return
+
+
         # Check outside the alphabet
         reg_val_txt = re.sub(reg_decode, '', txt)
 
@@ -184,8 +211,19 @@ class MainForm(Frame):
             return
 
         result = self.cipher.decode(txt)
-        self.out_txt.delete(1.0, END)
-        self.out_txt.insert(1.0, result)
+        self.dec_txt.delete(1.0, END)
+        self.dec_txt.insert(1.0, result)
+
+    def __btn_clear(self):
+        self.n_txt.delete(0, END)
+        self.p_txt.delete(0, END)
+        self.q_txt.delete(0, END)
+        self.euler_txt.delete(0, END)
+        self.e_txt.delete(0, END)
+        self.d_txt.delete(0, END)
+        self.inp_txt.delete(1.0, END)
+        self.enc_txt.delete(1.0, END)
+        self.dec_txt.delete(1.0, END)
 
     # Centring window
     def centerWindow(self):
