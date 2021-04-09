@@ -80,8 +80,8 @@ Fermat factorization method.</br>
 <img src="/images/Williams p+1.png" alt="drawing" width="450"/>
 
 ## RSA Pollard Hacking
-<img src="/images/RSA Pollard Hack Ex.png" alt="drawing" width="450"/>
 <img src="/images/RSA Pollard Hack.png" alt="drawing" width="450"/>
+<img src="/images/RSA Pollard Hack Ex.png" alt="drawing" width="450"/>
 
 # Reference
 - [MATHEMATICAL FOUNDATIONS INFORMATION SECURITY](https://kpfu.ru//staff_files/F1648958426/mzi.pdf)
