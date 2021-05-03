@@ -6,7 +6,7 @@ Implementation of some cryptographic algorithms🔑
 2. [Transposition](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Transposition)
 3. [Gamma](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Gamma)
 4. [Prime test and generator](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Prime%20Test)
-5. [Strong Pseudoprime](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Strong%20Pseudoprime)
+5. [Strong Pseudoprime Numbers](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Strong%20Pseudoprime)
 6. [Extended Euclid Algorithm](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Extended%20Euclid%20Algorithm)
 7. [Fast Modular Exponentiation](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Fast%20Modular%20Exponentiation)
 8. [RSA](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/RSA)
