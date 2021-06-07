@@ -2,18 +2,16 @@
 Implementation of some cryptographic algorithms🔑
 
 # Algorithms
-1. [Substitution](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Substitution)
-2. [Transposition](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Transposition)
-3. [Gamma](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Gamma)
-4. [Prime test and generator](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Prime%20Test)
-5. [Strong Pseudoprime Numbers](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Strong%20Pseudoprime)
-6. [Extended Euclid Algorithm](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Extended%20Euclid%20Algorithm)
-7. [Fast Modular Exponentiation](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Fast%20Modular%20Exponentiation)
-8. [RSA](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/RSA)
-9. [Fermat Factorization](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Fermat%20Factorization)
-10. [Pollard p-1](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Pollard%20p-1)
-11. [Williams p+1](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Williams%20p%2B1)
-12. [Pollard RSA Hacking](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/RSA%20Pollard%20Hack)
+1. [Gamma](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Gamma)
+2. [Prime test and generator](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Prime%20Test)
+3. [Strong Pseudoprime Numbers](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Strong%20Pseudoprime)
+4. [Extended Euclid Algorithm](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Extended%20Euclid%20Algorithm)
+5. [Fast Modular Exponentiation](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Fast%20Modular%20Exponentiation)
+6. [RSA](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/RSA)
+7. [Fermat Factorization](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Fermat%20Factorization)
+8. [Pollard p-1](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Pollard%20p-1)
+9. [Williams p+1](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/Williams%20p%2B1)
+10. [Pollard RSA Hacking](https://github.com/Vlad15lav/Cryptographic-Algorithms/tree/main/RSA%20Pollard%20Hack)
 
 
 ## Requirements
