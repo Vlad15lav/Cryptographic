@@ -21,28 +21,6 @@ pip install -U -r requirements.txt
 
 Check this repository - [Computer Security Tools](https://github.com/Vlad15lav/Computer-Security-Tools)
 
-## Substitution cipher
-One of the first cryptographic algorithms that are based on replacing letters by another alphabet.
-
-- Caesar's Cipher
-- Slogan Cipher
-- Polybius Square
-- Trisemus Сipher
-- Homophonic substitution
-- Playfair Cipher
-- Vigenere Cipher
-
-## Transposition cipher
-Symmetric encryption algorithms, in which elements of the original plaintext are swapped.
-
-- Columnar transposition
-- Block transposition
-- Route cipher
-- Vertical transposition
-- Grille
-- Magic Square
-- Double transposition
-
 ## Gamma Cipher
 Encrypting the use of XOR.</br>
 <img src="/images/Gamma.png" alt="drawing" width="450"/>
